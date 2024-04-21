@@ -10,7 +10,7 @@ export const Logo = () => {
           src="/logo.png"
           alt="Logo"
           height={60}
-          width={120}
+          width={75}
         />
       </div>
     </Link>

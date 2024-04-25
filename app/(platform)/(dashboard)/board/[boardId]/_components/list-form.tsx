@@ -1,18 +1,18 @@
 "use client";
 
-import { Plus, X } from "lucide-react";
+import { toast } from "sonner";
 import { useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
+import { Plus, X } from "lucide-react";
 
+import { createList } from "@/actions/create-list";
 import { useAction } from "@/hooks/use-action";
 import { FormInput } from "@/components/form/form-input";
 import { FormSubmit } from "@/components/form/form-submit";
 import { Button } from "@/components/ui/button";
 
 import { ListWrapper } from "./list-wrapper";
-import { createList } from "@/actions/create-list";
-import { toast } from "sonner";
 
 export const ListForm = () => {
   const router = useRouter();
@@ -36,7 +36,7 @@ export const ListForm = () => {
 
   const { excute, fieldErrors } = useAction(createList, {
     onSuccess: (data) => {
-      toast.success(`List "${data.title} created"`);
+      toast.success(`List "${data.title}" created`);
       disableEditing();
       router.refresh();
     },

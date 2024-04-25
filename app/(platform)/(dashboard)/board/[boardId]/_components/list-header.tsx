@@ -1,16 +1,20 @@
-import { updateList } from "@/actions/update-list";
-import { FormInput } from "@/components/form/form-input";
-import { useAction } from "@/hooks/use-action";
-import { List } from "@prisma/client";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { useEventListener } from "usehooks-ts";
 
+import { List } from "@prisma/client";
+import { updateList } from "@/actions/update-list";
+import { FormInput } from "@/components/form/form-input";
+import { useAction } from "@/hooks/use-action";
+
+import { ListOptions } from "./list-options";
+
 interface ListHeaderProps {
   data: List;
+  onAddCard: () => void;
 }
 
-export const ListHeader = ({ data }: ListHeaderProps) => {
+export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
   const [title, setTitle] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -98,6 +102,8 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
+
+      <ListOptions data={data} onAddCard={onAddCard} />
     </div>
   );
 };

@@ -1,4 +1,14 @@
 {
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - Page",
+    "**/app/**/page.jsx": "${dirname} - Page",
+    "**/pages/**/index.tsx": "${dirname} - Page",
+    "**/pages/**/index.jsx": "${dirname} - Page",
+    "**/app/**/layout.tsx": "${dirname} - Layout",
+    "**/app/**/layout.jsx": "${dirname} - Layout",
+    "**/components/**/index.tsx": "${dirname} - Component",
+    "**/components/**/index.jsx": "${dirname} - Component"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
